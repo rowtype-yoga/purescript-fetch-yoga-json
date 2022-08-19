@@ -1,4 +1,4 @@
-{ name = "iso-fetch-yoga-json"
+{ name = "fetch-yoga-json"
 , dependencies =
   [ "aff"
   , "either"
@@ -11,4 +11,6 @@
   ]
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs" ]
+, license = "MIT"
+, repository = "https://github.com/rowtype-yoga/fetch-yoga-json.git"
 }
