@@ -1,4 +1,7 @@
-module Fetch.Yoga.Json where
+module Fetch.Yoga.Json
+  ( fromJSON
+  )
+  where
 
 import Prelude
 
@@ -10,8 +13,8 @@ import Effect.Exception (Error, error)
 import Foreign (Foreign, ForeignError, renderForeignError)
 import Yoga.JSON as Yoga
 
-fromJson :: forall json. Yoga.ReadForeign json ⇒ Aff Foreign -> Aff json
-fromJson json = json >>= Yoga.read >>> either (toError >>> throwError) pure
+fromJSON :: forall json. Yoga.ReadForeign json ⇒ Aff Foreign -> Aff json
+fromJSON json = json >>= Yoga.read >>> either (toError >>> throwError) pure
   where
   toError :: NonEmptyList ForeignError -> Error
   toError = map renderForeignError >>> fold1 >>> error
