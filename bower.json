@@ -5,7 +5,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/rowtype-yoga/fetch-yoga-json.git"
+        "url": "https://github.com/rowtype-yoga/purescript-fetch-yoga-json.git"
     },
     "ignore": [
         "**/.*",
