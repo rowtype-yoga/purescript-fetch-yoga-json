@@ -17,10 +17,11 @@
         "purescript-aff": "^v7.0.0",
         "purescript-either": "^v6.1.0",
         "purescript-exceptions": "^v6.0.0",
+        "purescript-foldable-traversable": "^v6.0.0",
         "purescript-foreign": "^v7.0.0",
         "purescript-lists": "^v7.0.0",
-        "purescript-prelude": "^v6.0.0",
+        "purescript-prelude": "^v6.0.1",
         "purescript-transformers": "^v6.0.0",
-        "purescript-yoga-json": "https://github.com/rowtype-yoga/purescript-yoga-json.git#v2.0.0"
+        "purescript-yoga-json": "https://github.com/rowtype-yoga/purescript-yoga-json.git#v3.0.2"
     }
 }
