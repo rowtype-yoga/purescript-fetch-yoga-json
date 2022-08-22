@@ -10,11 +10,12 @@ import Data.Either (either)
 import Data.List.NonEmpty (NonEmptyList, fold1)
 import Effect.Aff (Aff)
 import Effect.Exception (Error, error)
-import Foreign (Foreign, ForeignError, renderForeignError)
+import Foreign (Foreign, ForeignError)
 import Yoga.JSON as Yoga
+import Yoga.JSON.Error (renderHumanError)
 
 fromJSON :: forall json. Yoga.ReadForeign json ⇒ Aff Foreign -> Aff json
 fromJSON json = json >>= Yoga.read >>> either (toError >>> throwError) pure
   where
   toError :: NonEmptyList ForeignError -> Error
-  toError = map renderForeignError >>> fold1 >>> error
+  toError = map renderHumanError >>> fold1 >>> error
