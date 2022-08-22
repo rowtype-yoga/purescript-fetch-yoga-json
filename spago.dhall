@@ -3,6 +3,7 @@
   [ "aff"
   , "either"
   , "exceptions"
+  , "foldable-traversable"
   , "foreign"
   , "lists"
   , "prelude"

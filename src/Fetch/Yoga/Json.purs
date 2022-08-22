@@ -7,7 +7,8 @@ import Prelude
 
 import Control.Monad.Error.Class (throwError)
 import Data.Either (either)
-import Data.List.NonEmpty (NonEmptyList, fold1)
+import Data.List.NonEmpty (NonEmptyList)
+import Data.Semigroup.Foldable (intercalateMap)
 import Effect.Aff (Aff)
 import Effect.Exception (Error, error)
 import Foreign (Foreign, ForeignError)
@@ -18,4 +19,4 @@ fromJSON :: forall json. Yoga.ReadForeign json ⇒ Aff Foreign -> Aff json
 fromJSON json = json >>= Yoga.read >>> either (toError >>> throwError) pure
   where
   toError :: NonEmptyList ForeignError -> Error
-  toError = map renderHumanError >>> fold1 >>> error
+  toError = intercalateMap "\n" renderHumanError >>> error
